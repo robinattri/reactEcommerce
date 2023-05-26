@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 const Navbar = () => {
 const cartItem = useSelector((state) => state.allproduct.cartItems);
-  console.log(cartItem, "cartItemddd");
+  // console.log(cartItem, "cartItemddd");
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container">
