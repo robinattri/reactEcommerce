@@ -1,34 +1,33 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, getProducts } from "../redux/actions";
 import { Link } from "react-router-dom";
 
 const ProductList = () => {
 const dispatch =useDispatch();
-
-
-  const [products, setProducts] =useState([])
+const filteredData = useSelector((state) => state.allproduct.filterData);
+console.log(filteredData, "filteredData");
+const products = useSelector((state) => state.allproduct.productList);
+console.log(products, "products");
  
-const getData=()=>{
-axios.get("https://fakestoreapi.com/products")
-.then((res)=>{
-  setProducts(res.data);
-  console.log(res.data, "products");
-}
-).catch((err)=>{
-  console.log(err,"error")
-})
-} 
-
-useEffect(()=>{
-  getData();
-},[])
+// const getData=()=>{
+// axios.get("https://fakestoreapi.com/products")
+// .then((res)=>{
+//   dispatch(getProducts(res.data));
+// }
+// ).catch((err)=>{
+//   console.log(err,"error")
+// })
+// } 
+// useEffect(()=>{
+//   getData();
+// },[])
 
   return (
     <div className="">
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="productList">
         <div className="container">

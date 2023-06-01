@@ -8,16 +8,16 @@ import Navbar from "./Navbar";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const products = useSelector((state) => state.allproduct.productList);
+
   const [selProduct, setSelProduct] = useState("");
-
+console.log(selProduct, "selectedss");
   const { image, category, description, price, title, } = selProduct;
- console.log(selProduct, "selected");
-  
-
+ 
   const selectedProduct = () => {
    axios.get(`https://fakestoreapi.com/products/${id}`)
       .then((res) => {
-        setSelProduct(res.data);
+         setSelProduct(res.data);
       })
       .catch((err) => {
         console.log(err, "err");
@@ -31,7 +31,7 @@ const ProductDetails = () => {
 
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <div className="container ">
         <div className="row">
           <div className="col-md-6">

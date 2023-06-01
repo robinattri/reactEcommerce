@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeProduct } from "../redux/actions";
 import Navbar from "./Navbar";
 const Cart = () => {
+  
   const cartItem = useSelector((state) => state.allproduct.cartItems);
 
 const carPanel = cartItem.filter(
@@ -48,7 +49,7 @@ finalCart.map((item)=>{
 
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-8">
